@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.noname.demo.mapper.CategoryMapper">
+  <resultMap id="BaseResultMap" type="com.noname.demo.entity.Category">
+    <!--@mbg.generated-->
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="fcategory" jdbcType="VARCHAR" property="fcategory" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, fcategory
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from category
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from category
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="Id" keyProperty="id" parameterType="com.noname.demo.entity.Category" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into category (fcategory)
+    values (#{fcategory,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="Id" keyProperty="id" parameterType="com.noname.demo.entity.Category" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into category
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fcategory != null">
+        fcategory,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fcategory != null">
+        #{fcategory,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.noname.demo.entity.Category">
+    <!--@mbg.generated-->
+    update category
+    <set>
+      <if test="fcategory != null">
+        fcategory = #{fcategory,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.noname.demo.entity.Category">
+    <!--@mbg.generated-->
+    update category
+    set fcategory = #{fcategory,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.noname.demo.mapper.MerchantsMapper">
+  <resultMap id="BaseResultMap" type="com.noname.demo.entity.Merchants">
+    <!--@mbg.generated-->
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="mpic" jdbcType="VARCHAR" property="mpic" />
+    <result column="mname" jdbcType="VARCHAR" property="mname" />
+    <result column="mtel" jdbcType="VARCHAR" property="mtel" />
+    <result column="maddress" jdbcType="VARCHAR" property="maddress" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, mpic, mname, mtel, maddress
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from merchants
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from merchants
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="Id" keyProperty="id" parameterType="com.noname.demo.entity.Merchants" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into merchants (mpic, mname, mtel, 
+      maddress)
+    values (#{mpic,jdbcType=VARCHAR}, #{mname,jdbcType=VARCHAR}, #{mtel,jdbcType=VARCHAR}, 
+      #{maddress,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="Id" keyProperty="id" parameterType="com.noname.demo.entity.Merchants" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into merchants
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mpic != null">
+        mpic,
+      </if>
+      <if test="mname != null">
+        mname,
+      </if>
+      <if test="mtel != null">
+        mtel,
+      </if>
+      <if test="maddress != null">
+        maddress,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mpic != null">
+        #{mpic,jdbcType=VARCHAR},
+      </if>
+      <if test="mname != null">
+        #{mname,jdbcType=VARCHAR},
+      </if>
+      <if test="mtel != null">
+        #{mtel,jdbcType=VARCHAR},
+      </if>
+      <if test="maddress != null">
+        #{maddress,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.noname.demo.entity.Merchants">
+    <!--@mbg.generated-->
+    update merchants
+    <set>
+      <if test="mpic != null">
+        mpic = #{mpic,jdbcType=VARCHAR},
+      </if>
+      <if test="mname != null">
+        mname = #{mname,jdbcType=VARCHAR},
+      </if>
+      <if test="mtel != null">
+        mtel = #{mtel,jdbcType=VARCHAR},
+      </if>
+      <if test="maddress != null">
+        maddress = #{maddress,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.noname.demo.entity.Merchants">
+    <!--@mbg.generated-->
+    update merchants
+    set mpic = #{mpic,jdbcType=VARCHAR},
+      mname = #{mname,jdbcType=VARCHAR},
+      mtel = #{mtel,jdbcType=VARCHAR},
+      maddress = #{maddress,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

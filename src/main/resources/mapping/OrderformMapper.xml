@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.noname.demo.mapper.OrderformMapper">
+  <resultMap id="BaseResultMap" type="com.noname.demo.entity.Orderform">
+    <!--@mbg.generated-->
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="cid" jdbcType="INTEGER" property="cid" />
+    <result column="totalprice" jdbcType="VARCHAR" property="totalprice" />
+    <result column="mid" jdbcType="INTEGER" property="mid" />
+    <result column="odatetime" jdbcType="VARCHAR" property="odatetime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, cid, totalprice, mid, odatetime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from orderform
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from orderform
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="Id" keyProperty="id" parameterType="com.noname.demo.entity.Orderform" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into orderform (cid, totalprice, mid, 
+      odatetime)
+    values (#{cid,jdbcType=INTEGER}, #{totalprice,jdbcType=VARCHAR}, #{mid,jdbcType=INTEGER}, 
+      #{odatetime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="Id" keyProperty="id" parameterType="com.noname.demo.entity.Orderform" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into orderform
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        cid,
+      </if>
+      <if test="totalprice != null">
+        totalprice,
+      </if>
+      <if test="mid != null">
+        mid,
+      </if>
+      <if test="odatetime != null">
+        odatetime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="totalprice != null">
+        #{totalprice,jdbcType=VARCHAR},
+      </if>
+      <if test="mid != null">
+        #{mid,jdbcType=INTEGER},
+      </if>
+      <if test="odatetime != null">
+        #{odatetime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.noname.demo.entity.Orderform">
+    <!--@mbg.generated-->
+    update orderform
+    <set>
+      <if test="cid != null">
+        cid = #{cid,jdbcType=INTEGER},
+      </if>
+      <if test="totalprice != null">
+        totalprice = #{totalprice,jdbcType=VARCHAR},
+      </if>
+      <if test="mid != null">
+        mid = #{mid,jdbcType=INTEGER},
+      </if>
+      <if test="odatetime != null">
+        odatetime = #{odatetime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.noname.demo.entity.Orderform">
+    <!--@mbg.generated-->
+    update orderform
+    set cid = #{cid,jdbcType=INTEGER},
+      totalprice = #{totalprice,jdbcType=VARCHAR},
+      mid = #{mid,jdbcType=INTEGER},
+      odatetime = #{odatetime,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.noname.demo.mapper.CustomersMapper">
+  <resultMap id="BaseResultMap" type="com.noname.demo.entity.Customers">
+    <!--@mbg.generated-->
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="cname" jdbcType="VARCHAR" property="cname" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="ctel" jdbcType="VARCHAR" property="ctel" />
+    <result column="caddress" jdbcType="VARCHAR" property="caddress" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, cname, sex, ctel, caddress
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from customers
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from customers
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="Id" keyProperty="id" parameterType="com.noname.demo.entity.Customers" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into customers (cname, sex, ctel, 
+      caddress)
+    values (#{cname,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{ctel,jdbcType=VARCHAR}, 
+      #{caddress,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="Id" keyProperty="id" parameterType="com.noname.demo.entity.Customers" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into customers
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cname != null">
+        cname,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="ctel != null">
+        ctel,
+      </if>
+      <if test="caddress != null">
+        caddress,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cname != null">
+        #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="ctel != null">
+        #{ctel,jdbcType=VARCHAR},
+      </if>
+      <if test="caddress != null">
+        #{caddress,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.noname.demo.entity.Customers">
+    <!--@mbg.generated-->
+    update customers
+    <set>
+      <if test="cname != null">
+        cname = #{cname,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="ctel != null">
+        ctel = #{ctel,jdbcType=VARCHAR},
+      </if>
+      <if test="caddress != null">
+        caddress = #{caddress,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.noname.demo.entity.Customers">
+    <!--@mbg.generated-->
+    update customers
+    set cname = #{cname,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      ctel = #{ctel,jdbcType=VARCHAR},
+      caddress = #{caddress,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
