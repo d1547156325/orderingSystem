@@ -17,4 +17,10 @@ public class CustomerServiceImpl implements CustomerService {
     public List<Customers> findAllCustomer() {
         return customersMapper.findAll();
     }
+
+    @Override
+    public int insertCus(Customers customers) {
+        return customersMapper.insertSelective(customers);
+    }
+
 }
