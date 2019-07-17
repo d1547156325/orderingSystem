@@ -1,4 +1,6 @@
 package com.noname.demo.mapper;
+import org.apache.ibatis.annotations.Param;
+import java.util.List;
 
 import com.noname.demo.entity.Product;
 import org.springframework.stereotype.Repository;
@@ -16,4 +18,8 @@ public interface ProductMapper {
     int updateByPrimaryKeySelective(Product record);
 
     int updateByPrimaryKey(Product record);
+
+    List<Product> findAll();
+
+
 }

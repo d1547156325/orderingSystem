@@ -1,4 +1,6 @@
 package com.noname.demo.mapper;
+import org.apache.ibatis.annotations.Param;
+import java.util.List;
 
 import com.noname.demo.entity.Admin;
 import org.springframework.stereotype.Repository;
@@ -16,5 +18,10 @@ public interface AdminMapper {
     int updateByPrimaryKeySelective(Admin record);
 
     int updateByPrimaryKey(Admin record);
+
+   Admin findOneByAnumAndApassword(@Param("anum")String anum,@Param("apassword")String apassword);
+
+   List<Admin> findAll();
+
 
 }
