@@ -1,4 +1,6 @@
 package com.noname.demo.mapper;
+import org.apache.ibatis.annotations.Param;
+import java.util.List;
 
 import com.noname.demo.entity.Customers;
 import org.springframework.stereotype.Repository;
@@ -19,4 +21,8 @@ public interface CustomersMapper {
     int updateByPrimaryKeySelective(Customers record);
 
     int updateByPrimaryKey(Customers record);
+
+    List<Customers> findAll();
+
+
 }

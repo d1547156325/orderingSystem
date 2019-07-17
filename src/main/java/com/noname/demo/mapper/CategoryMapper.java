@@ -1,4 +1,6 @@
 package com.noname.demo.mapper;
+import org.apache.ibatis.annotations.Param;
+import java.util.List;
 
 import com.noname.demo.entity.Category;
 import org.springframework.stereotype.Repository;
@@ -19,4 +21,8 @@ public interface CategoryMapper {
     int updateByPrimaryKeySelective(Category record);
 
     int updateByPrimaryKey(Category record);
+
+    List<Category> findAll();
+
+
 }
