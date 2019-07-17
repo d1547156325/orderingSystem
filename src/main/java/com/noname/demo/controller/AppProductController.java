@@ -17,7 +17,7 @@ public class AppProductController {
      * 商品列表
      */
     @RequestMapping(value = "/allPro", method = RequestMethod.GET)
-    private Map<String, Object> listPro(){
+    private Map<String, Object> listPro(Integer mId){
         Map<String, Object> map = new HashMap<>();
         List<Product> list = null;
         map.put("listPro", list);

@@ -1,26 +1,18 @@
 package com.noname.demo.controller;
 
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/AppCus")
-public class AppCustomerController {
+@RequestMapping("/AppOrd")
+public class AppOrderController {
 
     /**
-     * 注册
+     * 查询某顾客所有订单
      */
 
     /**
-     * 登录
+     * 增加订单
      */
 
-    /**
-     * 购买
-     */
-
-    /**
-     * 添加地址
-     */
 }

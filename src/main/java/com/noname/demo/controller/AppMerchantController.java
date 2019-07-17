@@ -5,6 +5,7 @@ import com.noname.demo.entity.Merchants;
 import com.noname.demo.service.MerchantService;
 import com.noname.demo.serviceimpl.MerchantServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +23,7 @@ public class AppMerchantController {
      * @return
      */
     @RequestMapping(value = "/allMer", method = RequestMethod.GET)
+
     private Map<String, Object> listArea(){
         Map<String, Object> map = new HashMap<>();
         List<Merchants> list = merchantService.findAllMerchant();
