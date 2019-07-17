@@ -1,5 +1,8 @@
 package com.noname.demo.entity;
 
+/**
+ * 管理员
+ */
 public class Admin {
     /**
     * 管理员ID

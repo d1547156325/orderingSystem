@@ -1,5 +1,8 @@
 package com.noname.demo.entity;
 
+/**
+ * 菜肴
+ */
 public class Product {
     /**
     * 编号

@@ -1,5 +1,8 @@
 package com.noname.demo.entity;
 
+/**
+ * 订单
+ */
 public class Orderform {
     /**
     * 订单ID

@@ -1,5 +1,8 @@
 package com.noname.demo.entity;
 
+/**
+ * 类别
+ */
 public class Category {
     /**
     * 分类编号

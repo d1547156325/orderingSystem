@@ -1,5 +1,8 @@
 package com.noname.demo.entity;
 
+/**
+ * 客户
+ */
 public class Customers {
     /**
     * 客户ID
