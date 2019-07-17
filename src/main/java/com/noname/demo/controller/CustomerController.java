@@ -23,6 +23,6 @@ public class CustomerController {
     @RequestMapping("/insertCus")
     public int insertCus(@RequestBody Customers customers)
     {
-       return customerService.insertCus(customers);
+        return customerService.insertCus(customers);
     }
 }

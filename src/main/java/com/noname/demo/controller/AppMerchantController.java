@@ -26,7 +26,6 @@ public class AppMerchantController {
         Map<String, Object> map = new HashMap<>();
         List<Merchants> list = merchantService.findAllMerchant();
         map.put("listMer", list);
-        System.out.println(list.get(0));
         return map;
     }
 
