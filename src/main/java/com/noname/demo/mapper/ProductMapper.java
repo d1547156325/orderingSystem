@@ -19,7 +19,10 @@ public interface ProductMapper {
 
     int updateByPrimaryKey(Product record);
 
-    List<Product> findAll();
+     List<Product> findAll();
+
+
+     int deleteById(@Param("id")Integer id);
 
 
 }

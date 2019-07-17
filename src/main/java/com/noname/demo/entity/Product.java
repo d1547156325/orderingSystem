@@ -16,7 +16,7 @@ public class Product {
     /**
     * 价格
     */
-    private String pprice;
+    private Double pprice;
 
     /**
     * 分类ID
@@ -52,11 +52,11 @@ public class Product {
         this.pname = pname;
     }
 
-    public String getPprice() {
+    public Double getPprice() {
         return pprice;
     }
 
-    public void setPprice(String pprice) {
+    public void setPprice(Double pprice) {
         this.pprice = pprice;
     }
 

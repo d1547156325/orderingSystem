@@ -26,4 +26,9 @@ public class AdminController {
     {
         return adminService.selectAllAdmin();
     }
+    @RequestMapping("/insertAdmin")
+    public int insertAdmin(@RequestBody Admin admin)
+    {
+        return adminService.insertAdmin(admin);
+    }
 }

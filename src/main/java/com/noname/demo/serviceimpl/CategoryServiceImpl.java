@@ -16,4 +16,13 @@ public class CategoryServiceImpl implements CategoryService {
     public List<Category> findAllCate() {
         return categoryMapper.findAll();
     }
+
+    @Override
+    public int insertCate(Category category)
+    {
+        if(categoryMapper.selectOneByFcategory(category.getFcategory())!=null)
+            return 0;
+        else
+            return categoryMapper.insertSelective(category);
+    }
 }
