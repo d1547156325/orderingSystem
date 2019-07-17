@@ -24,5 +24,4 @@ public interface CustomersMapper {
 
     List<Customers> findAll();
 
-
 }
