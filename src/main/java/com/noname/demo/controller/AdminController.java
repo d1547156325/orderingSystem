@@ -16,16 +16,19 @@ import java.util.List;
 public class AdminController {
     @Autowired
     private AdminService adminService=null;
+    /*登录功能*/
     @RequestMapping("/login")
     public Admin login(@RequestBody Admin admin)
     {
              return adminService.login(admin.getAnum(),admin.getApassword());
     }
+    /*查询所有管理员*/
     @RequestMapping("/findAll")
     public List<Admin> findAllAdmin()
     {
         return adminService.selectAllAdmin();
     }
+    /*新增管理员*/
     @RequestMapping("/insertAdmin")
     public int insertAdmin(@RequestBody Admin admin)
     {

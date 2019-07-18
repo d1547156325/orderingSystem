@@ -21,8 +21,9 @@ public interface ProductMapper {
 
      List<Product> findAll();
 
-
      int deleteById(@Param("id")Integer id);
+
+     List<Product> selectAllByCateid(@Param("cateid")Integer cateid);
 
 
 }

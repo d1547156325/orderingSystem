@@ -14,11 +14,13 @@ import java.util.List;
 public class CategoryController {
     @Autowired
     private CategoryService categoryService=null;
+    /*查询所有分类*/
     @RequestMapping("/findAll")
     public List<Category> findAll()
     {
         return categoryService.findAllCate();
     }
+    /*新增分类*/
     @RequestMapping("/insertCate")
     public int insertCate(@RequestBody Category category)
     {

@@ -13,6 +13,7 @@ import java.util.List;
 public class MerchantController {
    @Autowired
     private MerchantService merchantService=null;
+   /*查找所有商户*/
    @RequestMapping("/findAll")
     public List<Merchants> findAll()
    {

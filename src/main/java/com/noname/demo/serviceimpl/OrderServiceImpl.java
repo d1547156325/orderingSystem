@@ -30,4 +30,20 @@ public class OrderServiceImpl implements OrderService {
     public List<Orderform> findAllOrderByCid(Integer cid) {
         return orderformMapper.findAllByCid(cid);
     }
+
+    @Override
+    public List<Orderform> findAllByMid(Integer mid) {
+        return orderformMapper.findAllByMid(mid);
+    }
+
+    @Override
+    public int insertOrder(Orderform orderform) {
+        orderformMapper.insertSelective(orderform);
+        return orderform.getId();
+    }
+
+    @Override
+    public int insertOrderDetail(Orderformdetail orderformdetail) {
+        return orderformdetailMapper.insertSelective(orderformdetail);
+    }
 }

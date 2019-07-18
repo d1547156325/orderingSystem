@@ -26,4 +26,14 @@ public class ProductServiceImpl implements ProductService {
         }
         return sum;
     }
+
+    @Override
+    public int insertPro(Product product) {
+        return productMapper.insertSelective(product);
+    }
+
+    @Override
+    public List<Product> findAllByCateId(Integer id) {
+        return productMapper.selectAllByCateid(id);
+    }
 }
