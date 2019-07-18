@@ -31,6 +31,7 @@ public class CustomerController {
     @RequestMapping("/updateCus")
     public int updateCus(@RequestBody Customers customers)
     {
+
         return customerService.updateCus(customers);
     }
     /*根据ID查找顾客*/
@@ -38,18 +39,6 @@ public class CustomerController {
     public Customers findOneById(@RequestBody Integer id)
     {
 
-        return customerService.find(id);
-    }
-    /*更新顾客信息*/
-    @RequestMapping("/updateCus")
-    public int updateCus(@RequestBody Customers customers)
-    {
-        return customerService.updateCus(customers);
-    }
-    /*根据ID查找顾客*/
-    @RequestMapping("/findOneById")
-    public Customers findOneById(@RequestBody Integer id)
-    {
         return customerService.findOneById(id);
     }
 }

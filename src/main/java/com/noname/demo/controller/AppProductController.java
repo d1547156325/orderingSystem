@@ -1,6 +1,8 @@
 package com.noname.demo.controller;
 
 import com.noname.demo.entity.Product;
+import com.noname.demo.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,25 +15,28 @@ import java.util.Map;
 @RequestMapping("/AppPro")
 public class AppProductController {
 
+    @Autowired
+    private ProductService productService = null;
+
     /**
      * 商品列表
      */
     @RequestMapping(value = "/allPro", method = RequestMethod.GET)
-    private Map<String, Object> listPro(Integer mId){
+    private Map<String, Object> listPro(){
         Map<String, Object> map = new HashMap<>();
-        List<Product> list = null;
+        List<Product> list = productService.findAllProduct();
         map.put("listPro", list);
         return map;
     }
 
     /**
-     * 通过商家id和商品名字搜索商品
+     * 根据分类id查询该分类下所有商品
      */
-    @RequestMapping(value = "/seaPro", method = RequestMethod.GET)
-    private Map<String, Object> seaPro(Integer mid, String name) {
+    @RequestMapping("/catProList")
+    public Map<String, Object> searchCatPro(Integer id){
         Map<String, Object> map = new HashMap<>();
-        Product product = null;
-        map.put("Pro", product);
+        List<Product> list = productService.findAllByCateId(id);
+        map.put("listCatPro", list);
         return map;
     }
 }
