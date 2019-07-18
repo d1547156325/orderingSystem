@@ -7,4 +7,5 @@ import java.util.List;
 public interface AdminService {
     public Admin login(String anum, String apassword);
     public List<Admin> selectAllAdmin();
+    public int insertAdmin(Admin admin);
 }

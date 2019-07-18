@@ -24,4 +24,6 @@ public interface OrderformMapper {
 
     List<Orderform> findAllByCid(@Param("cid")Integer cid);
 
+    List<Orderform> findAllByMid(@Param("mid")Integer mid);
+
 }

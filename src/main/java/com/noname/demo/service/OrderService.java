@@ -10,4 +10,7 @@ public interface OrderService {
     public List<Orderform> findAllOrder();
     public List<Orderformdetail> findAllDetail(Integer oid);
     public List<Orderform> findAllOrderByCid(Integer cid);
+    public List<Orderform> findAllByMid(Integer mid);
+    public int insertOrder(Orderform orderform);
+    public int insertOrderDetail(Orderformdetail orderformdetail);
 }

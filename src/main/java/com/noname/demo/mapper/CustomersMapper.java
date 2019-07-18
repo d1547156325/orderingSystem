@@ -24,4 +24,7 @@ public interface CustomersMapper {
 
     List<Customers> findAll();
 
+    Customers findOneById(@Param("id")Integer id);
+
+
 }

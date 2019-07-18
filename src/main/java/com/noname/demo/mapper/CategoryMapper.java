@@ -24,5 +24,8 @@ public interface CategoryMapper {
 
     List<Category> findAll();
 
+    Category selectOneByFcategory(@Param("fcategory")String fcategory);
+
+
 
 }

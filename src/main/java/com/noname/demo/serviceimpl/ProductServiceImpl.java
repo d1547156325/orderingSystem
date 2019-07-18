@@ -16,5 +16,24 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> findAllProduct() {
         return productMapper.findAll();
     }
-}
 
+    @Override
+    public int deletePro(Integer[] ids) {
+        int sum=ids.length;
+        for(Integer temp:ids)
+        {
+            productMapper.deleteById(temp);
+        }
+        return sum;
+    }
+
+    @Override
+    public int insertPro(Product product) {
+        return productMapper.insertSelective(product);
+    }
+
+    @Override
+    public List<Product> findAllByCateId(Integer id) {
+        return productMapper.selectAllByCateid(id);
+    }
+}

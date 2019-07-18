@@ -26,5 +26,7 @@ public interface AdminMapper {
 
    List<Admin> findAll();
 
+  Admin findOneByAnum(@Param("anum")String anum);
+
 
 }
