@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class AppCustomerController {
 
     /**
-     * 注册
+     * 通过顾客id查询订单
      */
+
 
     /**
      * 登录
