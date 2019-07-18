@@ -2,9 +2,11 @@ package com.noname.demo.mapper;
 import org.apache.ibatis.annotations.Param;
 
 import com.noname.demo.entity.Orderform;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface OrderformMapper {
     int deleteByPrimaryKey(Integer id);
 
