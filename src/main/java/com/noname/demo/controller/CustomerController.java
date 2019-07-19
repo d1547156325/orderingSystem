@@ -3,38 +3,36 @@ package com.noname.demo.controller;
 import com.noname.demo.entity.Customers;
 import com.noname.demo.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
-
+@CrossOrigin(origins = "*",maxAge = 3600)
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {
     @Autowired
     private CustomerService customerService=null;
     /*查询所有顾客*/
-    @RequestMapping("/findAllCus")
+    @RequestMapping(value = "/findAllCus",method = RequestMethod.GET)
     public List<Customers> findAllcus()
     {
         return customerService.findAllCustomer();
     }
     /*新增顾客*/
-    @RequestMapping("/insertCus")
+    @RequestMapping(value = "/insertCus",method = RequestMethod.POST)
     public int insertCus(@RequestBody Customers customers)
     {
        return customerService.insertCus(customers);
     }
     /*更新顾客信息*/
-    @RequestMapping("/updateCus")
+    @RequestMapping(value = "/updateCus",method = RequestMethod.POST)
     public int updateCus(@RequestBody Customers customers)
     {
         return customerService.updateCus(customers);
     }
     /*根据ID查找顾客*/
-    @RequestMapping("/findOneById")
+    @RequestMapping(value = "/findOneById",method = RequestMethod.POST)
     public Customers findOneById(@RequestBody Integer id)
     {
         return customerService.findOneById(id);
