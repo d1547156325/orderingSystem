@@ -28,8 +28,8 @@ public class AppRemarkController {
         remark.setCid(cId);
         remark.setOid(oId);
         remark.setContent(content);
-        int sucess = remarkService.intsertRemark(remark);
-        map.put("sucess", sucess);
+        int success = remarkService.intsertRemark(remark);
+        map.put("success", success);
         return  map;
     }
 
@@ -41,7 +41,7 @@ public class AppRemarkController {
         Map<String, Object> map = new HashMap<>();
         List<Remark> list = remarkService.findAllRemark();
         map.put("remList", list);
-
+        map.put("success", true);
         return map;
     }
 }

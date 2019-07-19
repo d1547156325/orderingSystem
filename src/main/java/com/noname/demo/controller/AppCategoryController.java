@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,10 +23,11 @@ public class AppCategoryController {
      * @return
      */
     @RequestMapping("/allCat")
-    public Map<String, List> searchAllCat(){
+    public Map<String, Object> searchAllCat(){
         List<Category> list = categoryService.findAllCate();
-        Map<String, List> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<>();
         map.put("allCatList", list);
+        map.put("success", true);
         return map;
     }
 }

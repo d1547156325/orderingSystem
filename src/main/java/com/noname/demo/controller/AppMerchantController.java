@@ -28,6 +28,7 @@ public class AppMerchantController {
         Map<String, Object> map = new HashMap<>();
         List<Merchants> list = merchantService.findAllMerchant();
         map.put("listMer", list);
+        map.put("success", true);
         return map;
     }
 
@@ -39,6 +40,7 @@ public class AppMerchantController {
         Map<String, Object> map = new HashMap<>();
         Merchants merchants = null;
         map.put("Mer", merchants);
+        map.put("success", true);
         return map;
     }
 }

@@ -37,6 +37,7 @@ public class AppProductController {
         Map<String, Object> map = new HashMap<>();
         List<Product> list = productService.findAllByCateId(id);
         map.put("listCatPro", list);
+        map.put("success", true);
         return map;
     }
 }

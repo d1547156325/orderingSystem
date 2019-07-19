@@ -24,10 +24,6 @@ public class AppCustomerController {
     @Autowired
     private CustomerService customerService = null;
 
-    /**
-     * 登录
-     */
-
 
     /**
      * 通过顾客id查询个人信息

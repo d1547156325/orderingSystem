@@ -31,6 +31,7 @@ public class AppOrderController {
         List<Orderform> list = orderService.findAllOrderByCid(id);
         Map<String, Object> map = new HashMap<>();
         map.put("orderCList", list);
+        map.put("success", true);
         return map;
     }
 
@@ -49,8 +50,8 @@ public class AppOrderController {
         orderform.setTotalprice(totalPrice);
         orderform.setMid(1);
         orderform.setState("未完成");
-        int sucess = orderService.insertOrder(orderform);
-        map.put("sucess", sucess);
+        int success = orderService.insertOrder(orderform);
+        map.put("success", success);
         return map;
     }
     /**
@@ -61,10 +62,9 @@ public class AppOrderController {
         Map<String, Object> map = new HashMap<>();
         List<Orderformdetail> list = orderService.findAllDetail(Oid);
         map.put("orderDetailList", list);
-
+        map.put("success", true);
         return map;
     }
-
 
 
 }
