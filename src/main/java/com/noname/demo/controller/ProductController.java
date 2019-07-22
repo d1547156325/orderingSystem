@@ -25,7 +25,7 @@ public class ProductController {
         return productService.deletePro(ids);
     }
     /*根据分类ID查询商品*/
-    @RequestMapping(value = "/findAllByCateId",method = RequestMethod.POST)
+    @RequestMapping(value = "/findAllByCateId",method = RequestMethod.POST )
     public List<Product> findAllByCateID(@RequestBody Integer id)
     {
         return productService.findAllByCateId(id);
