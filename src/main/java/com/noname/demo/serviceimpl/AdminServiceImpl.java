@@ -30,4 +30,11 @@ public class AdminServiceImpl implements AdminService {
         else
             return adminMapper.insertSelective(admin);
     }
+
+    @Override
+    public int updatePassword(String anum, String apassword) {
+        Admin admin=adminMapper.selectOneByAnum(anum);
+        admin.setApassword(apassword);
+        return adminMapper.updateByPrimaryKeySelective(admin);
+    }
 }

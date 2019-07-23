@@ -4,7 +4,6 @@ package com.noname.demo.controller;
 import com.noname.demo.entity.Admin;
 import com.noname.demo.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,5 +30,12 @@ public class AdminController {
     public int insertAdmin(@RequestBody Admin admin)
     {
         return adminService.insertAdmin(admin);
+    }
+    @RequestMapping(value = "/updateAdmin",method = RequestMethod.POST)
+    public int updateAdmin(@RequestBody Admin admin)
+    {
+        System.out.println(admin.getAnum());
+        System.out.println(admin.getApassword());
+        return adminService.updatePassword(admin.getAnum(),admin.getApassword());
     }
 }

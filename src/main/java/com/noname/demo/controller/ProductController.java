@@ -30,4 +30,9 @@ public class ProductController {
     {
         return productService.findAllByCateId(id);
     }
+    /*@RequestMapping(value = "/addProc",method = RequestMethod.POST)
+    public int addProc(@RequestBody Product product, MultipartFile file)
+    {
+
+    }*/
 }
