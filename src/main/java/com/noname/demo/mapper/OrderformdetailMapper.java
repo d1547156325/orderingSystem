@@ -1,9 +1,9 @@
 package com.noname.demo.mapper;
-import org.apache.ibatis.annotations.Param;
-import java.util.List;
-
 import com.noname.demo.entity.Orderformdetail;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface OrderformdetailMapper {
@@ -20,6 +20,8 @@ public interface OrderformdetailMapper {
     int updateByPrimaryKey(Orderformdetail record);
 
     List<Orderformdetail> findAllByOid(@Param("oid")Integer oid);
+
+     int deleteByOid(@Param("oid")Integer oid);
 
 
 }

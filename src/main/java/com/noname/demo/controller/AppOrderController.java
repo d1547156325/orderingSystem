@@ -47,7 +47,7 @@ public class AppOrderController {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String dateString = formatter.format(date);
         orderform.setOdatetime(dateString);
-        orderform.setTotalprice(totalPrice.toString());
+        orderform.setTotalprice(totalPrice);
         orderform.setMid(1);
         orderform.setState("未完成");
         int success = orderService.insertOrder(orderform);

@@ -29,8 +29,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public int insertPro(Product product) {
-
-        return productMapper.insertSelective(product);
+         productMapper.insertSelective(product);
+         return product.getId();
     }
 
     @Override

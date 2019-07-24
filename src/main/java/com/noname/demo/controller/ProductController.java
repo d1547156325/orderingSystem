@@ -2,7 +2,9 @@ package com.noname.demo.controller;
 
 import com.noname.demo.entity.Product;
 import com.noname.demo.entity.ProductTemp;
+import com.noname.demo.entity.Productinfo;
 import com.noname.demo.service.ProductService;
+import com.noname.demo.service.ProductinfoService;
 import com.noname.demo.tools.UploadUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 @CrossOrigin(origins = "*",maxAge = 3600)
 @RestController
@@ -17,6 +20,8 @@ import java.util.List;
 public class ProductController {
     @Autowired
     private ProductService productService=null;
+    @Autowired
+    private ProductinfoService productinfoService=null;
     /*查询所有产品*/
     @RequestMapping(value = "/findAllPro",method = RequestMethod.GET)
     public List<Product> findAllPro()
@@ -37,8 +42,9 @@ public class ProductController {
     }
     @RequestMapping(value = "/addProc",method = RequestMethod.POST)
     public int addProc(HttpServletRequest request, ProductTemp productTemp) throws IOException {
+        Date tempdate=new Date();
         File fileDir = UploadUtils.getImgDirFile();
-        String filename = productTemp.getFile().getOriginalFilename();
+        String filename =(System.currentTimeMillis())+productTemp.getFile().getOriginalFilename();
         Product product=new Product();
         product.setCateid(productTemp.getCateid());
         product.setPname(productTemp.getPname());
@@ -46,7 +52,12 @@ public class ProductController {
         File newFile = new File(fileDir.getAbsolutePath() + File.separator + filename);
         product.setPpic(filename);
         productTemp.getFile().transferTo(newFile);
-        return productService.insertPro(product);
+        int tempid=productService.insertPro(product);
+        Productinfo productinfo=new Productinfo();
+        productinfo.setComment(productTemp.getComment());
+        productinfo.setPid(tempid);
+        productinfo.setSales(0);
+        return productinfoService.insertSelective(productinfo);
     }
 
 }

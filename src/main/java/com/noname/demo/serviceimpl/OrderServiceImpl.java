@@ -46,4 +46,17 @@ public class OrderServiceImpl implements OrderService {
     public int insertOrderDetail(Orderformdetail orderformdetail) {
         return orderformdetailMapper.insertSelective(orderformdetail);
     }
+
+    @Override
+    public int deleteFinished(Integer id) {
+        orderformdetailMapper.deleteByOid(id);
+        return orderformMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public int modifyOrder(Integer id) {
+        Orderform orderform=orderformMapper.selectByPrimaryKey(id);
+        orderform.setState("已完成");
+        return orderformMapper.updateByPrimaryKeySelective(orderform);
+    }
 }

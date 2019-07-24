@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.noname.demo.mapper.ProductinfoMapper">
+  <resultMap id="BaseResultMap" type="com.noname.demo.entity.Productinfo">
+    <!--@mbg.generated-->
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="pid" jdbcType="INTEGER" property="pid" />
+    <result column="comment" jdbcType="VARCHAR" property="comment" />
+    <result column="sales" jdbcType="INTEGER" property="sales" />
+    <result column="disocunt" jdbcType="FLOAT" property="disocunt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, pid, `comment`, sales, disocunt
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from productinfo
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from productinfo
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="Id" keyProperty="id" parameterType="com.noname.demo.entity.Productinfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into productinfo (pid, `comment`, sales, 
+      disocunt)
+    values (#{pid,jdbcType=INTEGER}, #{comment,jdbcType=VARCHAR}, #{sales,jdbcType=INTEGER}, 
+      #{disocunt,jdbcType=FLOAT})
+  </insert>
+  <insert id="insertSelective" keyColumn="Id" keyProperty="id" parameterType="com.noname.demo.entity.Productinfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into productinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pid != null">
+        pid,
+      </if>
+      <if test="comment != null">
+        `comment`,
+      </if>
+      <if test="sales != null">
+        sales,
+      </if>
+      <if test="disocunt != null">
+        disocunt,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pid != null">
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="comment != null">
+        #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="sales != null">
+        #{sales,jdbcType=INTEGER},
+      </if>
+      <if test="disocunt != null">
+        #{disocunt,jdbcType=FLOAT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.noname.demo.entity.Productinfo">
+    <!--@mbg.generated-->
+    update productinfo
+    <set>
+      <if test="pid != null">
+        pid = #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="comment != null">
+        `comment` = #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="sales != null">
+        sales = #{sales,jdbcType=INTEGER},
+      </if>
+      <if test="disocunt != null">
+        disocunt = #{disocunt,jdbcType=FLOAT},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.noname.demo.entity.Productinfo">
+    <!--@mbg.generated-->
+    update productinfo
+    set pid = #{pid,jdbcType=INTEGER},
+      `comment` = #{comment,jdbcType=VARCHAR},
+      sales = #{sales,jdbcType=INTEGER},
+      disocunt = #{disocunt,jdbcType=FLOAT}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

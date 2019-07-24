@@ -59,7 +59,7 @@ public class OrderFormController {
             temp2.setCaddress(customers.get(i).getCaddress());
             temp2.setCtel(customers.get(i).getCtel());
             temp2.setOdatetime(finished.get(i).getOdatetime());
-            temp2.setTotalprice(finished.get(i).getTotalprice());
+            temp2.setTotalprice((finished.get(i).getTotalprice()).toString());
             orderformNofinishes.add(temp2);
         }
         return orderformNofinishes;
@@ -89,5 +89,14 @@ public class OrderFormController {
     {
         return orderService.insertOrder(orderform);
     }
-
+    @RequestMapping(value = "/deleteFinisher",method = RequestMethod.POST)
+    public int deleteFinished(@RequestBody Integer id)
+    {
+        return orderService.deleteFinished(id);
+    }
+    @RequestMapping(value = "/finishing",method = RequestMethod.POST)
+    public int finishingOrder(@RequestBody Integer id)
+    {
+        return orderService.modifyOrder(id);
+    }
 }
