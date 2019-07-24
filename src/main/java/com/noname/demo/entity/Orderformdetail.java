@@ -1,5 +1,8 @@
 package com.noname.demo.entity;
 
+/**
+ * 订单明细
+ */
 public class Orderformdetail {
     /**
     * 编号

@@ -29,11 +29,13 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public int insertPro(Product product) {
+
         return productMapper.insertSelective(product);
     }
 
     @Override
     public List<Product> findAllByCateId(Integer id) {
+
         return productMapper.selectAllByCateid(id);
     }
 }
