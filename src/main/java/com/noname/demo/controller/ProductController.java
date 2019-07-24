@@ -1,10 +1,15 @@
 package com.noname.demo.controller;
 
 import com.noname.demo.entity.Product;
+import com.noname.demo.entity.ProductTemp;
 import com.noname.demo.service.ProductService;
+import com.noname.demo.tools.UploadUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 @CrossOrigin(origins = "*",maxAge = 3600)
 @RestController
@@ -30,9 +35,18 @@ public class ProductController {
     {
         return productService.findAllByCateId(id);
     }
-    /*@RequestMapping(value = "/addProc",method = RequestMethod.POST)
-    public int addProc(@RequestBody Product product, MultipartFile file)
-    {
+    @RequestMapping(value = "/addProc",method = RequestMethod.POST)
+    public int addProc(HttpServletRequest request, ProductTemp productTemp) throws IOException {
+        File fileDir = UploadUtils.getImgDirFile();
+        String filename = productTemp.getFile().getOriginalFilename();
+        Product product=new Product();
+        product.setCateid(productTemp.getCateid());
+        product.setPname(productTemp.getPname());
+        product.setPprice(productTemp.getPprice());
+        File newFile = new File(fileDir.getAbsolutePath() + File.separator + filename);
+        product.setPpic(filename);
+        productTemp.getFile().transferTo(newFile);
+        return productService.insertPro(product);
+    }
 
-    }*/
 }
