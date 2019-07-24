@@ -23,18 +23,20 @@ public class CustomerController {
     @RequestMapping(value = "/insertCus",method = RequestMethod.POST)
     public int insertCus(@RequestBody Customers customers)
     {
-       return customerService.insertCus(customers);
+        return customerService.insertCus(customers);
     }
     /*更新顾客信息*/
     @RequestMapping(value = "/updateCus",method = RequestMethod.POST)
     public int updateCus(@RequestBody Customers customers)
     {
+
         return customerService.updateCus(customers);
     }
     /*根据ID查找顾客*/
     @RequestMapping(value = "/findOneById",method = RequestMethod.POST)
     public Customers findOneById(@RequestBody Integer id)
     {
+
         return customerService.findOneById(id);
     }
 }

@@ -14,7 +14,7 @@ public class Orderform {
     /**
     * 总金额
     */
-    private String totalprice;
+    private Float totalprice;
 
     /**
     * 商家ID
@@ -30,6 +30,7 @@ public class Orderform {
     * 订单状态
     */
     private String state;
+
 
     public Integer getId() {
         return id;
@@ -47,11 +48,11 @@ public class Orderform {
         this.cid = cid;
     }
 
-    public String getTotalprice() {
+    public Float getTotalprice() {
         return totalprice;
     }
 
-    public void setTotalprice(String totalprice) {
+    public void setTotalprice(Float totalprice) {
         this.totalprice = totalprice;
     }
 

@@ -36,7 +36,8 @@ public class AppProductController {
     public Map<String, Object> searchCatPro(Integer id){
         Map<String, Object> map = new HashMap<>();
         List<Product> list = productService.findAllByCateId(id);
-        map.put("listCatPro", list);
+        //System.out.println(id);
+        map.put("listPro", list);
         map.put("success", true);
         return map;
     }

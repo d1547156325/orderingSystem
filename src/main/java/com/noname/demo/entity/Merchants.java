@@ -1,5 +1,8 @@
 package com.noname.demo.entity;
 
+/**
+ * 商家
+ */
 public class Merchants {
     /**
     * 编号
