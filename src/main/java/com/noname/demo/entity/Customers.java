@@ -1,8 +1,5 @@
 package com.noname.demo.entity;
 
-/**
- * 客户
- */
 public class Customers {
     /**
     * 客户ID
@@ -28,6 +25,8 @@ public class Customers {
     * 地址
     */
     private String caddress;
+
+    private String openid;
 
     public Integer getId() {
         return id;
@@ -67,5 +66,13 @@ public class Customers {
 
     public void setCaddress(String caddress) {
         this.caddress = caddress;
+    }
+
+    public String getOpenid() {
+        return openid;
+    }
+
+    public void setOpenid(String openid) {
+        this.openid = openid;
     }
 }

@@ -9,4 +9,6 @@ public interface CustomerService {
     public int insertCus(Customers customers);
     public int updateCus(Customers customers);
     public Customers findOneById(Integer id);
+    public int updateByCtel(Customers customers);
+    public Customers findByCtel(String ctel);
 }
