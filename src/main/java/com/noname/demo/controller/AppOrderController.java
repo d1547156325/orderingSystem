@@ -23,6 +23,14 @@ public class AppOrderController {
     private OrderService orderService = null;
 
     /**
+     * 通过手机号码查询该顾客所有订单
+     */
+
+    /**
+     * 通过订单状态state查询订单
+     */
+
+    /**
      * 通过顾客id查询该顾客所有订单
      */
     @RequestMapping("/OrderById")

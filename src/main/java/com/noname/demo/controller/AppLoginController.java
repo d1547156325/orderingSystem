@@ -75,13 +75,22 @@ public class AppLoginController {
     }
 
     /**
-     * 将sessin从redis中删除，实现退出账号
+     * 将session从redis中删除，实现退出账号
      */
     @RequestMapping(value = "/rvmSession",method = RequestMethod.GET)
     public Map<String, Object> removeSession(String sessionId){
         Map<String, Object> map = new HashMap<>();
+        System.out.println(sessionId);
         redis.del(sessionId);
         map.put("success", true);
         return map;
     }
+
+    /**
+     * 通过openid查询手机号
+     */
+
+    /**
+     * 将openid与绑定的手机号码存入数据库
+     */
 }

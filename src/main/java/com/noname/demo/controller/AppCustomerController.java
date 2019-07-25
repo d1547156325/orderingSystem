@@ -26,6 +26,14 @@ public class AppCustomerController {
 
 
     /**
+     * 通过手机号码查询个人信息
+     */
+
+    /**
+     * 通过手机号码修改个人信息
+     */
+
+    /**
      * 通过顾客id查询个人信息
      */
     @RequestMapping(value = "/CusById",method = RequestMethod.GET)
