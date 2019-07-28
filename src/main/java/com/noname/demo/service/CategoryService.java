@@ -5,6 +5,7 @@ import com.noname.demo.entity.Category;
 import java.util.List;
 
 public interface CategoryService {
-    List<Category> findAllCate();
+    public List<Category> findAllCate();
     public int insertCate(Category category);
+
 }

@@ -24,4 +24,9 @@ public class CategoryController {
     {
         return categoryService.insertCate(category);
     }
+    @RequestMapping(value = "/getAllCate",method = RequestMethod.GET)
+    public List<Category> getAllCate()
+    {
+        return categoryService.findAllCate();
+    }
 }
