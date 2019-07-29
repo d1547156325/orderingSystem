@@ -14,6 +14,7 @@ public class ProductServiceImpl implements ProductService {
     private ProductMapper productMapper=null;
     @Override
     public List<Product> findAllProduct() {
+
         return productMapper.findAll();
     }
 

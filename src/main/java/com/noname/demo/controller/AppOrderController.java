@@ -1,7 +1,9 @@
 package com.noname.demo.controller;
 
+import com.noname.demo.entity.Customers;
 import com.noname.demo.entity.Orderform;
 import com.noname.demo.entity.Orderformdetail;
+import com.noname.demo.service.CustomerService;
 import com.noname.demo.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,10 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 @RequestMapping("/AppOrd")
@@ -21,17 +20,45 @@ public class AppOrderController {
 
     @Autowired
     private OrderService orderService = null;
+    @Autowired
+    private CustomerService customerService = null;
 
     /**
-     * 通过顾客id查询该顾客所有订单
+     * 通过openid查询该顾客所有订单
      */
-    @RequestMapping("/OrderById")
-    public Map<String, Object> findOneById(@RequestBody Integer id)
-    {
-        List<Orderform> list = orderService.findAllOrderByCid(id);
+    @RequestMapping("/searchOrder")
+    public Map<String, Object> searchOrderByOId(String openid){
         Map<String, Object> map = new HashMap<>();
-        map.put("orderCList", list);
+        if(openid == null){
+            map.put("success", false);
+            return map;
+        }
+        Customers customers = customerService.findByOpenId(openid);
+        Integer cid = customers.getId();
+        List<Orderform> list = orderService.findAllOrderByCid(cid);
+
+        map.put("customers", customers);
+        map.put("orders", list);
         map.put("success", true);
+        return map;
+    }
+
+    /**
+     * 通过订单状态state查询订单
+     */
+    @RequestMapping("/searchOrderBySta")
+    public Map<String, Object> searchOrderByState(String state){
+        Map<String, Object> map = new HashMap<>();
+        List<Orderform> allorder=orderService.findAllOrder();
+        List<Orderform> list=new ArrayList<Orderform>();
+        for(int i=0;i<allorder.size();i++)
+        {
+            Orderform temp=allorder.get(i);
+            if(temp.getState().equalsIgnoreCase(state))
+                list.add(temp);
+        }
+        map.put("listOrder", list);
+
         return map;
     }
 
@@ -54,6 +81,7 @@ public class AppOrderController {
         map.put("success", success);
         return map;
     }
+
     /**
      * 通过订单id  查询订单详情
      */

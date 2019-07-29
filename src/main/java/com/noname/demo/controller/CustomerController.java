@@ -38,9 +38,11 @@ public class CustomerController {
 
         return customerService.findOneById(id);
     }
+    /*
     @RequestMapping(value = "updateByCtel",method = RequestMethod.POST)
     public int updateByCtel(@RequestBody Customers customers)
     {
         return customerService.updateByCtel(customers);
     }
+    */
 }
