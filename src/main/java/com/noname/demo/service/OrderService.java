@@ -15,4 +15,5 @@ public interface OrderService {
     public int insertOrderDetail(Orderformdetail orderformdetail);
     public int deleteFinished(Integer id);
     public int modifyOrder(Integer id);
+    public int cancelOrder(Integer id);
 }

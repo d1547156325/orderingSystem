@@ -39,8 +39,9 @@ public class AdminController {
     {
         return adminService.updatePassword(admin.getAnum(),admin.getApassword());
     }
-    @RequestMapping(value = "/SMSVerification",method = RequestMethod.GET)
-    public String SMSVerification(String telephone) throws ClientException {
+    @RequestMapping(value = "/SMSVerification",method = RequestMethod.POST)
+    public String SMSVerification( String telephone) throws ClientException {
+        System.out.println(telephone);
         AliyunSMS.setNewcode();
         String code = Integer.toString(AliyunSMS.getNewcode());
         System.out.println("发送的验证码为："+code);

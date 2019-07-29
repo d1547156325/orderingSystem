@@ -1,9 +1,9 @@
 package com.noname.demo.mapper;
-import org.apache.ibatis.annotations.Param;
-import java.util.List;
-
 import com.noname.demo.entity.Category;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * 分类操作
@@ -25,6 +25,8 @@ public interface CategoryMapper {
     List<Category> findAll();
 
     Category selectOneByFcategory(@Param("fcategory")String fcategory);
+
+   List<Category> selectAll();
 
 
 

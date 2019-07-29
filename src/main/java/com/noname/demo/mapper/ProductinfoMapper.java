@@ -1,4 +1,5 @@
 package com.noname.demo.mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.noname.demo.entity.Productinfo;
 
@@ -14,4 +15,11 @@ public interface ProductinfoMapper {
     int updateByPrimaryKeySelective(Productinfo record);
 
     int updateByPrimaryKey(Productinfo record);
+
+    int deleteByPid(@Param("pid")Integer pid);
+
+    Productinfo selectOneByPid(@Param("pid")Integer pid);
+
+
+
 }

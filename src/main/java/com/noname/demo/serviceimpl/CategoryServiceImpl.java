@@ -26,5 +26,10 @@ public class CategoryServiceImpl implements CategoryService {
             return categoryMapper.insertSelective(category);
     }
 
+    @Override
+    public int deleteCate(Integer id) {
+        return categoryMapper.deleteByPrimaryKey(id);
+    }
+
 
 }

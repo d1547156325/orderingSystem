@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -22,12 +23,30 @@ public class AppCustomerController {
 
 
     /**
-     * 通过手机号码查询个人信息
+     * 通过openid查询个人信息
      */
+    @RequestMapping("/searchCus")
+    public Map<String, Object> searchCustomer(String openid){
+        Map<String, Object> map = new HashMap<>();
+
+        Customers customer = customerService.findByOpenId(openid);
+        map.put("customer", customer);
+        map.put("success", true);
+        return map;
+    }
 
     /**
-     * 通过手机号码修改个人信息
+     * 通过openid修改个人信息
      */
+    @RequestMapping("/rvmCus")
+    public Map<String, Object> revmCustomer(Customers customers){
+        Map<String, Object> map = new HashMap<>();
+        if(customerService.updateByOpenId(customers) != 0)
+            map.put("success", true);
+        else
+            map.put("success", false);
+        return map;
+    }
 
     /**
      * 通过顾客id查询个人信息

@@ -1,9 +1,11 @@
 package com.noname.demo.mapper;
 import org.apache.ibatis.annotations.Param;
 import com.noname.demo.entity.Customers;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface CustomersMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -23,9 +25,9 @@ public interface CustomersMapper {
 
     List<Customers> selectByCtel(@Param("ctel")String ctel);
 
-    int updateByCtel(@Param("updated")Customers updated,@Param("ctel")String ctel);
+    int updateByOpenId(@Param("updated")Customers updated,@Param("openid")String openid);
 
-   Customers selectOneByCtel(@Param("ctel")String ctel);
+   Customers selectOneByOpenId(@Param("openid")String openid);
 
 
 }

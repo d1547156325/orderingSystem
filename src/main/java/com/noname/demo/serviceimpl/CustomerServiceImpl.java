@@ -34,13 +34,14 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public int updateByCtel(Customers customers) {
-     return customersMapper.updateByCtel(customers,customers.getCtel());
+    public int updateByOpenId(Customers customers) {
+     return customersMapper.updateByOpenId(customers,customers.getOpenid());
     }
 
     @Override
-    public Customers findByCtel(String ctel) {
-       return customersMapper.selectOneByCtel(ctel);
+    public Customers findByOpenId(String openid) {
+
+        return customersMapper.selectOneByOpenId(openid);
     }
 
 }

@@ -1,11 +1,11 @@
 package com.noname.demo.controller;
 
 import com.noname.demo.entity.Product;
+import com.noname.demo.entity.Product1;
 import com.noname.demo.entity.ProductTemp;
 import com.noname.demo.entity.Productinfo;
 import com.noname.demo.service.ProductService;
 import com.noname.demo.service.ProductinfoService;
-import com.noname.demo.tools.UploadUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,13 +43,12 @@ public class ProductController {
     @RequestMapping(value = "/addProc",method = RequestMethod.POST)
     public int addProc(HttpServletRequest request, ProductTemp productTemp) throws IOException {
         Date tempdate=new Date();
-        File fileDir = UploadUtils.getImgDirFile();
         String filename =(System.currentTimeMillis())+productTemp.getFile().getOriginalFilename();
         Product product=new Product();
         product.setCateid(productTemp.getCateid());
         product.setPname(productTemp.getPname());
         product.setPprice(productTemp.getPprice());
-        File newFile = new File(fileDir.getAbsolutePath() + File.separator + filename);
+        File newFile = new File("E:\\IMAGES" + File.separator + filename);
         product.setPpic(filename);
         productTemp.getFile().transferTo(newFile);
         int tempid=productService.insertPro(product);
@@ -60,4 +59,15 @@ public class ProductController {
         return productinfoService.insertSelective(productinfo);
     }
 
+    @RequestMapping(value = "/deleteOne",method = RequestMethod.POST)
+    public int deleteOne(@RequestBody Product product)
+    {
+        System.out.println(product.getId());
+        return productService.deleteOntPro(product.getId());
+    }
+    @RequestMapping(value = "/getInfoByPid",method = RequestMethod.POST)
+    public Product1 getInfo(@RequestBody Product product)
+    {
+        return productService.findByPid(product.getId());
+    }
 }

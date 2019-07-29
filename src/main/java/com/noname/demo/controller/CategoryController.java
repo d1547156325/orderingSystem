@@ -24,4 +24,14 @@ public class CategoryController {
     {
         return categoryService.insertCate(category);
     }
+    @RequestMapping(value = "/getAllCate",method = RequestMethod.GET)
+    public List<Category> getAllCate()
+    {
+        return categoryService.findAllCate();
+    }
+    @RequestMapping(value = "/deleteCate",method = RequestMethod.POST)
+    public int deleteCate(@RequestBody Category category)
+    {
+        return categoryService.deleteCate(category.getId());
+    }
 }
