@@ -99,4 +99,9 @@ public class OrderFormController {
     {
         return orderService.modifyOrder(id);
     }
+    @RequestMapping(value = "cancelOrder",method = RequestMethod.POST)
+    public int cancelOrder(@RequestBody Orderform orderform)
+    {
+      return orderService.cancelOrder(orderform.getId());
+    }
 }
