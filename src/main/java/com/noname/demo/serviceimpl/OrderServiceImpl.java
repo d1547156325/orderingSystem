@@ -59,4 +59,11 @@ public class OrderServiceImpl implements OrderService {
         orderform.setState("已完成");
         return orderformMapper.updateByPrimaryKeySelective(orderform);
     }
+
+    @Override
+    public int cancelOrder(Integer id) {
+        Orderform orderform=orderformMapper.selectByPrimaryKey(id);
+        orderform.setState("已取消");
+        return orderformMapper.updateByPrimaryKeySelective(orderform);
+    }
 }

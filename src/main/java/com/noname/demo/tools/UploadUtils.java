@@ -3,7 +3,7 @@ package com.noname.demo.tools;
 import java.io.File;
 
 public class UploadUtils {
-    public final static String IMG_PATH_PREFIX = "static";
+    public final static String IMG_PATH_PREFIX = "upload";
 
     public static File getImgDirFile(){
 
