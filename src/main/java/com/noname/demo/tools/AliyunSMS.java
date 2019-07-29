@@ -18,9 +18,8 @@ import com.aliyuncs.profile.IClientProfile;
  */
 
 public class AliyunSMS {
-    //产品名称:云通信短信API产品,开发者无需替换
+
     static final String product = "Dysmsapi";
-    //产品域名,开发者无需替换
     static final String domain = "dysmsapi.aliyuncs.com";
     // TODO 此处需要替换成开发者自己的AK(在阿里云访问控制台寻找)
     static final String accessKeyId = "LTAI8Wfzx4o3aw27";  // TODO 修改成自己的
@@ -57,7 +56,6 @@ public class AliyunSMS {
         }
         return sendSmsResponse;
     }
-    //以下为测试代码，随机生成验证码
     private static int newcode;
     public static int getNewcode() {
         return newcode;

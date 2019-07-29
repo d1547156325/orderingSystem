@@ -29,4 +29,9 @@ public class CategoryController {
     {
         return categoryService.findAllCate();
     }
+    @RequestMapping(value = "/deleteCate",method = RequestMethod.POST)
+    public int deleteCate(@RequestBody Category category)
+    {
+        return categoryService.deleteCate(category.getId());
+    }
 }
