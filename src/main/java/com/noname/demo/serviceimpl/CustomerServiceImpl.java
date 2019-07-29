@@ -33,4 +33,14 @@ public class CustomerServiceImpl implements CustomerService {
         return customersMapper.findOneById(id);
     }
 
+    @Override
+    public int updateByCtel(Customers customers) {
+     return customersMapper.updateByCtel(customers,customers.getCtel());
+    }
+
+    @Override
+    public Customers findByCtel(String ctel) {
+       return customersMapper.selectOneByCtel(ctel);
+    }
+
 }

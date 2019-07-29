@@ -2,10 +2,7 @@ package com.noname.demo.controller;
 
 
 import com.noname.demo.entity.Customers;
-import com.noname.demo.entity.Orderform;
 import com.noname.demo.service.CustomerService;
-import com.noname.demo.service.OrderService;
-import org.omg.CORBA.PUBLIC_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @RestController

@@ -5,7 +5,6 @@ import com.noname.demo.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-
 import java.util.List;
 @CrossOrigin(origins = "*",maxAge = 3600)
 @RestController
@@ -38,5 +37,10 @@ public class CustomerController {
     {
 
         return customerService.findOneById(id);
+    }
+    @RequestMapping(value = "updateByCtel",method = RequestMethod.POST)
+    public int updateByCtel(@RequestBody Customers customers)
+    {
+        return customerService.updateByCtel(customers);
     }
 }

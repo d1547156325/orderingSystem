@@ -1,8 +1,11 @@
 package com.noname.demo.controller;
 
 
+import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
+import com.aliyuncs.exceptions.ClientException;
 import com.noname.demo.entity.Admin;
 import com.noname.demo.service.AdminService;
+import com.noname.demo.tools.AliyunSMS;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,5 +33,24 @@ public class AdminController {
     public int insertAdmin(@RequestBody Admin admin)
     {
         return adminService.insertAdmin(admin);
+    }
+    @RequestMapping(value = "/updateAdmin",method = RequestMethod.POST)
+    public int updateAdmin(@RequestBody Admin admin)
+    {
+        return adminService.updatePassword(admin.getAnum(),admin.getApassword());
+    }
+    @RequestMapping(value = "/SMSVerification",method = RequestMethod.GET)
+    public String SMSVerification(String telephone) throws ClientException {
+        AliyunSMS.setNewcode();
+        String code = Integer.toString(AliyunSMS.getNewcode());
+        System.out.println("发送的验证码为："+code);
+        //发短信t
+        SendSmsResponse response =AliyunSMS.sendSms(telephone,code); // TODO 填写你需要测试的手机号码
+        System.out.println("短信接口返回的数据----------------");
+        System.out.println("Code=" + response.getCode());
+        System.out.println("Message=" + response.getMessage());
+        System.out.println("RequestId=" + response.getRequestId());
+        System.out.println("BizId=" + response.getBizId());
+        return code;
     }
 }

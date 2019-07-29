@@ -1,13 +1,10 @@
 package com.noname.demo.mapper;
-import org.apache.ibatis.annotations.Param;
-import java.util.List;
-
 import com.noname.demo.entity.Admin;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-/**
- * 管理员操作
- */
+import java.util.List;
+
 @Repository
 public interface AdminMapper {
     int deleteByPrimaryKey(Integer id);
@@ -27,6 +24,10 @@ public interface AdminMapper {
    List<Admin> findAll();
 
   Admin findOneByAnum(@Param("anum")String anum);
+
+    int updateByAnumAndApassword(@Param("updated")Admin updated,@Param("anum")String anum,@Param("apassword")String apassword);
+
+    Admin selectOneByAnum(@Param("anum")String anum);
 
 
 }

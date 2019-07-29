@@ -13,4 +13,6 @@ public interface OrderService {
     public List<Orderform> findAllByMid(Integer mid);
     public int insertOrder(Orderform orderform);
     public int insertOrderDetail(Orderformdetail orderformdetail);
+    public int deleteFinished(Integer id);
+    public int modifyOrder(Integer id);
 }
