@@ -87,4 +87,9 @@ public class ProductController {
     {
         return productService.findByPid(product.getId());
     }
+    @RequestMapping(value = "/findById",method = RequestMethod.POST)
+    public Product findById(@RequestBody Product product)
+    {
+    return productService.findTempById(product.getId());
+    }
 }

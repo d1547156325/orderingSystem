@@ -1,9 +1,6 @@
 package com.noname.demo.serviceimpl;
 
-import com.noname.demo.entity.Category;
-import com.noname.demo.entity.Product;
-import com.noname.demo.entity.Product1;
-import com.noname.demo.entity.Productinfo;
+import com.noname.demo.entity.*;
 import com.noname.demo.mapper.CategoryMapper;
 import com.noname.demo.mapper.ProductMapper;
 import com.noname.demo.mapper.ProductinfoMapper;
@@ -75,4 +72,10 @@ public class ProductServiceImpl implements ProductService {
     public int update(Product product) {
         return productMapper.updateByPrimaryKeySelective(product);
     }
+
+    @Override
+    public Product findTempById(Integer id) {
+    return productMapper.selectByPrimaryKey(id);
+    }
+
 }

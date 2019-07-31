@@ -13,4 +13,5 @@ public interface ProductService {
     public int deleteOntPro(Integer id);
     public Product1 findByPid(Integer pid);
     public int update(Product product);
+    public Product findTempById(Integer id);
 }
