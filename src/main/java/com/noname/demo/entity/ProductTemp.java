@@ -57,4 +57,9 @@ public class ProductTemp {
     public void setFile(MultipartFile file) {
         this.file = file;
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

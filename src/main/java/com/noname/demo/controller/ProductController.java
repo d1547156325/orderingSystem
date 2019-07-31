@@ -58,6 +58,23 @@ public class ProductController {
         productinfo.setSales(0);
         return productinfoService.insertSelective(productinfo);
     }
+    @RequestMapping(value = "/updatePro",method = RequestMethod.POST)
+    public int updatePro(HttpServletRequest request,  ProductTemp productTemp) throws IOException {
+        Date tempdate=new Date();
+        String filename =(System.currentTimeMillis())+productTemp.getFile().getOriginalFilename();
+        Product product=new Product();
+        product.setCateid(productTemp.getCateid());
+        product.setPname(productTemp.getPname());
+        product.setPprice(productTemp.getPprice());
+        File newFile = new File("E:\\IMAGES" + File.separator + filename);
+        product.setPpic(filename);
+        productTemp.getFile().transferTo(newFile);
+        product.setId(productTemp.getId());
+        productService.update(product);
+        Productinfo productinfo=productinfoService.selectByPid(productTemp.getId());
+        productinfo.setComment(productTemp.getComment());
+        return productinfoService.updateByPrimaryKeySelective(productinfo);
+    }
 
     @RequestMapping(value = "/deleteOne",method = RequestMethod.POST)
     public int deleteOne(@RequestBody Product product)

@@ -12,4 +12,5 @@ public interface ProductService {
     public List<Product> findAllByCateId(Integer id);
     public int deleteOntPro(Integer id);
     public Product1 findByPid(Integer pid);
+    public int update(Product product);
 }

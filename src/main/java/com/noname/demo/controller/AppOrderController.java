@@ -1,7 +1,7 @@
 package com.noname.demo.controller;
 
+import com.noname.demo.entity.OrderDetailPojo;
 import com.noname.demo.entity.Orderform;
-import com.noname.demo.entity.Orderformdetail;
 import com.noname.demo.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -60,7 +60,7 @@ public class AppOrderController {
     @RequestMapping(value = "/ordDetByOId", method = RequestMethod.GET)
     private Map<String , Object> orderDetailByOId(Integer Oid){
         Map<String, Object> map = new HashMap<>();
-        List<Orderformdetail> list = orderService.findAllDetail(Oid);
+        List<OrderDetailPojo> list = orderService.findAllDetail(Oid);
         map.put("orderDetailList", list);
         map.put("success", true);
         return map;

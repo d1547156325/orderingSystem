@@ -70,4 +70,9 @@ public class ProductServiceImpl implements ProductService {
         product1.setSales(productinfo.getSales());
         return product1;
     }
+
+    @Override
+    public int update(Product product) {
+        return productMapper.updateByPrimaryKeySelective(product);
+    }
 }

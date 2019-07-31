@@ -1,9 +1,6 @@
 package com.noname.demo.controller;
 
-import com.noname.demo.entity.Customers;
-import com.noname.demo.entity.Orderform;
-import com.noname.demo.entity.OrderformNofinish;
-import com.noname.demo.entity.Orderformdetail;
+import com.noname.demo.entity.*;
 import com.noname.demo.service.CustomerService;
 import com.noname.demo.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,7 +64,7 @@ public class OrderFormController {
     }
     /*根据订单ID查询订单详情*/
     @RequestMapping(value = "/findDetail",method = RequestMethod.POST)
-    public List<Orderformdetail> findAllDetail(@RequestBody Orderform orderform)
+    public List<OrderDetailPojo> findAllDetail(@RequestBody Orderform orderform)
     {
         return orderService.findAllDetail(orderform.getId());
     }
@@ -95,11 +92,11 @@ public class OrderFormController {
         return orderService.deleteFinished(id);
     }
     @RequestMapping(value = "/finishing",method = RequestMethod.POST)
-    public int finishingOrder(@RequestBody Integer id)
+    public int finishingOrder(@RequestBody Orderform orderform)
     {
-        return orderService.modifyOrder(id);
+        return orderService.modifyOrder(orderform.getId());
     }
-    @RequestMapping(value = "cancelOrder",method = RequestMethod.POST)
+    @RequestMapping(value = "/cancelOrder",method = RequestMethod.POST)
     public int cancelOrder(@RequestBody Orderform orderform)
     {
       return orderService.cancelOrder(orderform.getId());
