@@ -47,17 +47,32 @@ public class AppOrderController {
      * 通过订单状态state查询订单
      */
     @RequestMapping("/searchOrderBySta")
-    public Map<String, Object> searchOrderByState(String state){
+    public Map<String, Object> searchOrderByState(String openid, String sid){
         Map<String, Object> map = new HashMap<>();
-        List<Orderform> allorder=orderService.findAllOrder();
-        List<Orderform> list=new ArrayList<Orderform>();
+        if(openid == null){
+            map.put("success", false);
+            return map;
+        }
+        System.out.println(sid);
+        Customers customers = customerService.findByOpenId(openid);
+        Integer cid = customers.getId();
+        List<Orderform> allorder = orderService.findAllOrderByCid(cid);
+        List<Orderform> list = new ArrayList<>();
+        String state = "";
+        if(sid.equals("1"))
+            state = "已完成";
+        else if(sid.equals("2"))
+            state = "未完成";
+        else if(sid.equals("3"))
+            state = "已取消";
         for(int i=0;i<allorder.size();i++)
         {
             Orderform temp=allorder.get(i);
             if(temp.getState().equalsIgnoreCase(state))
                 list.add(temp);
         }
-        map.put("listOrder", list);
+        map.put("orders", list);
+        map.put("customers", customers);
 
         return map;
     }

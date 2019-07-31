@@ -16,7 +16,7 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/AppLogin")
-public class AppLoginController {
+public class  AppLoginController {
 
     @Autowired
     CustomerService customerService = null;

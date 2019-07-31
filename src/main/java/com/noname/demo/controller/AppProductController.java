@@ -33,12 +33,19 @@ public class AppProductController {
      * 根据分类id查询该分类下所有商品
      */
     @RequestMapping("/catProList")
-    public Map<String, Object> searchCatPro(Integer id){
+    public Map<String, Object> searchCatPro(Integer id) {
         Map<String, Object> map = new HashMap<>();
         List<Product> list = productService.findAllByCateId(id);
         //System.out.println(id);
         map.put("listPro", list);
         map.put("success", true);
+        return map;
+    }
+
+    @RequestMapping("/seaPro")
+    public Map<String ,Object> findById(Integer id){
+        Map<String, Object> map = new HashMap<>();
+        //Product product = productService.findByPid(id);
         return map;
     }
 }
