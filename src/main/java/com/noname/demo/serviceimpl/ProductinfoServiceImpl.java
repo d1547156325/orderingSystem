@@ -42,4 +42,9 @@ public class ProductinfoServiceImpl implements ProductinfoService{
         return productinfoMapper.updateByPrimaryKey(record);
     }
 
+    @Override
+    public Productinfo selectByPid(Integer pid) {
+        return productinfoMapper.selectOneByPid(pid);
+    }
+
 }

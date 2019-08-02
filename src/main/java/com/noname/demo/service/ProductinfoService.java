@@ -16,4 +16,5 @@ public interface ProductinfoService{
 
     int updateByPrimaryKey(Productinfo record);
 
+    public Productinfo selectByPid(Integer pid);
 }

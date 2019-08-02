@@ -1,6 +1,7 @@
 package com.noname.demo.controller;
 
 import com.noname.demo.entity.Customers;
+import com.noname.demo.entity.OrderDetailPojo;
 import com.noname.demo.entity.Orderform;
 import com.noname.demo.entity.Orderformdetail;
 import com.noname.demo.service.CustomerService;
@@ -103,7 +104,8 @@ public class AppOrderController {
     @RequestMapping(value = "/ordDetByOId", method = RequestMethod.GET)
     private Map<String , Object> orderDetailByOId(Integer Oid){
         Map<String, Object> map = new HashMap<>();
-        List<Orderformdetail> list = orderService.findAllDetail(Oid);
+        System.out.println(Oid);
+        List<OrderDetailPojo> list = orderService.findAllDetail(Oid);
         map.put("orderDetailList", list);
         map.put("success", true);
         return map;
