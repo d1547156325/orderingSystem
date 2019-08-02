@@ -43,4 +43,9 @@ public class CustomerServiceImpl implements CustomerService {
        return customersMapper.selectOneByCtel(ctel);
     }
 
+    @Override
+    public Customers selectOneByOpenId(String openid) {
+        return customersMapper.selectOneByOpenid(openid);
+    }
+
 }

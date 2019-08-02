@@ -11,4 +11,5 @@ public interface CustomerService {
     public Customers findOneById(Integer id);
     public int updateByCtel(Customers customers);
     public Customers findByCtel(String ctel);
+    public Customers selectOneByOpenId(String openid);
 }

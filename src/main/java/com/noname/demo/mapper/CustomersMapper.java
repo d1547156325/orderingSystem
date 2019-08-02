@@ -27,5 +27,7 @@ public interface CustomersMapper {
 
    Customers selectOneByCtel(@Param("ctel")String ctel);
 
+  Customers selectOneByOpenid(@Param("openid")String openid);
+
 
 }

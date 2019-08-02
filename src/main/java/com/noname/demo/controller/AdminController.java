@@ -9,6 +9,7 @@ import com.noname.demo.tools.AliyunSMS;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 @CrossOrigin(origins = "*",maxAge = 3600)
 @RestController
@@ -18,7 +19,7 @@ public class AdminController {
     private AdminService adminService=null;
     /*登录功能*/
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public Admin  login(@RequestBody  Admin admin)
+    public Admin  login(@RequestBody  Admin admin, HttpSession session)
     {
         return adminService.login(admin.getAnum(),admin.getApassword());
     }
