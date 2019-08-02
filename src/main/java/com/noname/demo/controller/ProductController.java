@@ -67,7 +67,7 @@ public class ProductController {
         product.setPname(productTemp.getPname());
         product.setPprice(productTemp.getPprice());
         File newFile = new File("E:\\IMAGES" + File.separator + filename);
-        if(productTemp.getFile()!=null)
+        if(productTemp.getFile()!=null)//修改图片的BUG
         product.setPpic(filename);
         productTemp.getFile().transferTo(newFile);
         product.setId(productTemp.getId());

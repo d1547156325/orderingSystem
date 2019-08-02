@@ -37,4 +37,9 @@ public class AdminServiceImpl implements AdminService {
         admin.setApassword(apassword);
         return adminMapper.updateByPrimaryKeySelective(admin);
     }
+
+    @Override
+    public int deleteAdmin(Integer id) {
+        return adminMapper.deleteByPrimaryKey(id);
+    }
 }

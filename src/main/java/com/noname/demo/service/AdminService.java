@@ -9,4 +9,5 @@ public interface AdminService {
     public List<Admin> selectAllAdmin();
     public int insertAdmin(Admin admin);
     public int updatePassword(String anum,String apassword);
+    public int deleteAdmin(Integer id);
 }

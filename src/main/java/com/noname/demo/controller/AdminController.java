@@ -55,4 +55,9 @@ public class AdminController {
         System.out.println("BizId=" + response.getBizId());
         return code;
     }
+    @RequestMapping(value = "/deleteAdmin",method = RequestMethod.POST)
+    public int deleteAdmin(@RequestBody Admin admin)
+    {
+        return adminService.deleteAdmin(admin.getId());
+    }
 }
