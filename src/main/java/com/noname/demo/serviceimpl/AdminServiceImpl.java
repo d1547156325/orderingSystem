@@ -25,10 +25,8 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public int insertAdmin(Admin admin) {
-        if(adminMapper.findOneByAnum(admin.getAnum())!=null)
-            return 0;
-        else
-            return adminMapper.insertSelective(admin);
+
+            return adminMapper.insert(admin);
     }
 
     @Override
